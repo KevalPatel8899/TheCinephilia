@@ -45,6 +45,7 @@
                 android:text="TextView" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewComments"
                 android:layout_width="421dp"
                 android:layout_height="778dp" />
         </LinearLayout>

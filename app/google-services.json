@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1042486809467",
+    "project_id": "thecinephilia-58439",
+    "storage_bucket": "thecinephilia-58439.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1042486809467:android:31e9f54e88daa288cf63de",
+        "android_client_info": {
+          "package_name": "com.example.thecinephilia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1042486809467-1o0ae8uisihjgi6vn32hsmi1p7moo3lc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcKOezfx9v8GwdRshXMpreGJ22j9pfZng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1042486809467-1o0ae8uisihjgi6vn32hsmi1p7moo3lc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -42,8 +42,6 @@ class AddMovieActivity : AppCompatActivity() {
                 findViewById<EditText>(R.id.editTextMovieName).text.clear()
                 findViewById<EditText>(R.id.editTextDescription).text.clear()
                 findViewById<Spinner>(R.id.spinnerGenre).setSelection(0)
-
-
             }
         }
     }

@@ -60,7 +60,12 @@ class MainActivity : AppCompatActivity() {
             holder.itemView.textViewGenre.text = model.genre
 
             holder.itemView.setOnClickListener{
-
+                var intent = Intent(applicationContext, MovieActivity::class.java)
+                intent.putExtra("id",model.id)
+                intent.putExtra("movieName", model.movieName)
+                intent.putExtra("description", model.description)
+                intent.putExtra("genre", model.genre)
+                startActivity(intent);
             }
         }
         }

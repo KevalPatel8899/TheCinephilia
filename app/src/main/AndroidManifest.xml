@@ -9,11 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TheCinephilia">
-        <activity android:name=".AddMovieActivity"></activity>
+        <activity android:name=".AddReviewActivity"></activity>
+        <activity android:name=".AddMovieActivity" />
         <activity android:name=".MovieActivity" />
-        <activity android:name=".LoginActivity" >
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

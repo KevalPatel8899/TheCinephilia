@@ -9,14 +9,16 @@ import com.firebase.ui.auth.IdpResponse
 
 class LoginActivity : AppCompatActivity() {
 
-    private val providers = arrayListOf(
-        AuthUI.IdpConfig.EmailBuilder().build(),
-        AuthUI.IdpConfig.GoogleBuilder().build())
+
     private val RC_SIGN_IN = 2343
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        var providers = arrayListOf(
+            AuthUI.IdpConfig.EmailBuilder().build(),
+            AuthUI.IdpConfig.GoogleBuilder().build())
 
         startActivityForResult(
             AuthUI.getInstance()

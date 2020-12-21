@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     val query = db.orderBy("movieName", Query.Direction.ASCENDING)
     val options = FirestoreRecyclerOptions.Builder<Movie>().setQuery(query, Movie::class.java).build()
     private var adapter: movieAdapter? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +44,18 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<FloatingActionButton>(R.id.floatingActionButtonAddMovie).setOnClickListener {
             startActivity(Intent(applicationContext,AddMovieActivity::class.java))
+        }
+
+
+
+        findViewById<FloatingActionButton>(R.id.floatingActionButtonLogout).setOnClickListener {
+            AuthUI.getInstance()
+                    .signOut(this)
+                    .addOnCompleteListener {
+                        // ...
+                        startActivity(Intent(applicationContext,LoginActivity::class.java))
+                        finish()
+                    }
         }
     }
 

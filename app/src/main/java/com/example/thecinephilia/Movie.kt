@@ -1,6 +1,5 @@
 package com.example.thecinephilia
 
-import android.accounts.AuthenticatorDescription
 
 class Movie {
 

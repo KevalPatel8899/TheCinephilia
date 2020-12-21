@@ -15,13 +15,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-import kotlinx.android.synthetic.main.activity_add_review.view.*
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_movie.*
 import kotlinx.android.synthetic.main.item_comment.view.*
-import kotlinx.android.synthetic.main.item_movie.view.*
 
 class MovieActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie)
@@ -33,12 +31,12 @@ class MovieActivity : AppCompatActivity() {
             startActivity(Intent(applicationContext, LoginActivity::class.java))
         }
 
-        val id = intent.getStringExtra("id")
+
+
         val name = intent.getStringExtra("movieName")
         val description = intent.getStringExtra("description")
         val genre = intent.getStringExtra("genre")
 
-        val db = FirebaseFirestore.getInstance().collection("Movies")
         val reviewDB = FirebaseFirestore.getInstance().collection("reviews");
         val query = reviewDB.orderBy("time", Query.Direction.ASCENDING).whereEqualTo("movieName",name)
         val options = FirestoreRecyclerOptions.Builder<Comment>().setQuery(query, Comment::class.java).build()
@@ -53,9 +51,16 @@ class MovieActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.textViewMovieDescription).text = description
         findViewById<TextView>(R.id.textViewMovieGenre).text = genre
 
+        buttonMovieList.setOnClickListener{
+            finish()
+            startActivity(Intent(applicationContext, MainActivity::class.java))
+        }
+
         findViewById<FloatingActionButton>(R.id.floatingActionButtonAddComment).setOnClickListener {
             var intent = Intent(applicationContext, AddReviewActivity::class.java)
             intent.putExtra("movieName", name)
+            intent.putExtra("description",description)
+            intent.putExtra("genre",genre)
             startActivity(intent)
         }
     }

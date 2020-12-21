@@ -17,6 +17,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.activity_movie.*
 import kotlinx.android.synthetic.main.item_comment.view.*
+import kotlinx.android.synthetic.main.item_movie.view.*
 
 class MovieActivity : AppCompatActivity() {
 
@@ -81,6 +82,7 @@ class MovieActivity : AppCompatActivity() {
             holder.itemView.textViewUsername.text = model.userName
             holder.itemView.textViewComment.text = model.review
             holder.itemView.ratingBar.rating = model.ratings!!
+            holder.itemView.textViewTimeStemp.text = model.time.toString()
         }
     }
 

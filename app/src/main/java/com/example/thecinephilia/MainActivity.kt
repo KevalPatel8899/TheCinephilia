@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.activity_main.*
@@ -27,6 +28,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val user = FirebaseAuth.getInstance().currentUser
+
+        if(user == null){
+            finish()
+            startActivity(Intent(applicationContext, LoginActivity::class.java))
+        }
 
         recyclerViewMovies.layoutManager = LinearLayoutManager(this)
         adapter = movieAdapter(options)
@@ -68,5 +75,5 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent);
             }
         }
-        }
+    }
 }
